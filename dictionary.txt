@@ -1,0 +1,6 @@
+dict={'a':5,'b':92,'c':63,'d':12,'e':59,'f':28,'g':37,'h':73,'i':99,'j':48,'k':10,'l':87}
+sum=0
+for i in dict:
+    sum=sum+dict[i]
+total_sum=str(sum)
+print("sum: "+total_sum)

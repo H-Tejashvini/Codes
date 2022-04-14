@@ -1,0 +1,41 @@
+print( "CASHLESS SUPERMARKET")
+items = {}
+num = int(input("Enter no of items you want to buy: "))
+items = dict(input().split() for x in range(num))
+for keys in items:
+    items[keys]=int(items[keys])
+print(items)
+def total(items):
+    sum = 0
+    for i in items.values():
+        sum = sum + i
+    return sum
+print("CART TOTAL:", "Rs",total(items))
+choice_add = input("Do you want to add any item (y or no) :")
+if choice_add == "y" :
+    added_items= {}
+    n=int(input("Enter no of items you want to add: "))
+    added_items = [ map(str, input().split()) for x in range(n)]
+    items.update(added_items)
+    for keys in items:
+        items[keys]=int(items[keys])
+print(items)
+choice_remove = input("Do you want to remove any item (y or no) : ")
+if choice_remove == "y" :
+   key_delete = input("Enter the key to delete : ")
+   if key_delete in items :
+      del items[key_delete]
+   else :
+         print("Please enter the item in your cart:")
+print("CART TOTAL:", total(items))
+cart_total = total(items)
+if(cart_total>=5000 & cart_total<=9000):    #discount of 5%
+    cart_total=cart_total-(cart_total*5/100)
+elif(cart_total>10000 & cart_total<=15000):   #discount of 10%
+    cart_total=cart_total-(cart_total*10/100)
+print("TOTAL AFTER DISCOUNT:","Rs", cart_total)
+card_amount=float(input("Enter the amount in your account : "))
+if(card_amount>=cart_total):
+    print("Transaction done successfully")
+elif(card_amount<cart_total):
+    print("Transactional is failed---insufficient balance")

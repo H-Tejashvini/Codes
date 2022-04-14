@@ -1,0 +1,39 @@
+CASHLESS SUPERMARKET:
+
+In this the Shoppers have to provide their credit or debit card and their transactions are conducted electronically with no cash involved.
+
+After the cart is taken:
+set cart_total=0
+set cart_item=0
+ADD item to cart_item:
+	read barcode of item
+If cart_total>0:
+cart_total=cart_item+cart_total
+
+
+Adding or Removing items from cart:
+If item is added
+cart_total=cart_item+cart_total
+
+If item is removed
+cart_total=cart_item-cart_total
+
+
+Discount:
+if cart_total<=5000:
+       discount = cart_total*0.05
+    elif cart_total<=15000:
+        discount=cart_total*0.12
+    elif cart_total<=25000:
+        discount=0.2 * cart_total
+    else:
+         discount=0.3 * cart_total
+
+
+Payment:
+Read card
+if card_amount>card_total
+	Make payment
+Display receipt
+Else card_amount<card_total
+	Display balance is insufficient
